@@ -1,6 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 earch engine:
 
+## https://priyanshuchauhan.github.io/se...
+
+## Start app
+
+Frontend and server runs from same command
+
+### `npm install`
+### `npm start`
+
+Or use the above URL (without PATCH operations)
+
+Tesing
+
+### `npm test`
+
 1. create code snnipet:
 	a. Add that minimal snippet to the project’s test suite, along with an assertion what the correct behavior should be. Make sure the test is red (fails).
 	b. Integrate vscode browser:  possible suggestion and fixed code. JS can run in browser for other programming languges premium

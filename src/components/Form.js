@@ -1,42 +1,48 @@
-import React from 'react'
-import axios from 'axios'
+import React from "react";
+import axios from "axios";
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { querySearch: '' };
+    this.state = { querySearch: "" };
     this.handleSearch = (event) => {
       this.setState({ querySearch: event.target.value });
-      let noSpaceText = event.target.value.replace(/\s/, '%20');
+      let noSpaceText = event.target.value.replace(/\s/, "%20");
       if (!noSpaceText) {
         this.props.onInput(null);
         return;
       }
-      axios.get(`https://en.wikipedia.org/w/api.php`, {
-        params: {
-          action: 'opensearch',
-          datatype: 'json',
-          limit: 15,
-          search: noSpaceText,
-          origin: '*'
-        }
-      })
+      axios
+        .get(`https://en.wikipedia.org/w/api.php`, {
+          params: {
+            action: "opensearch",
+            datatype: "json",
+            limit: 15,
+            search: noSpaceText,
+            origin: "*",
+          },
+        })
         .then((resp) => {
           this.props.onInput(resp.data);
-        })
-    }
+        });
+    };
   }
   render() {
     return (
       <form>
-        <input style={{ margin: '10px 0px', width: '75%' }}
+        <input
+          style={{ margin: "10px 0px", width: "75%" }}
           value={this.state.querySearch}
           onChange={this.handleSearch}
           type="text"
-          placeholder="Search here" required /><i className="fa fa-search" aria-hidden="true"></i>
+          placeholder="Search here"
+          required
+        />
+        <i className="fa fa-search" aria-hidden="true"></i>
+        Dropdown search by stack trace
       </form>
-    )
+    );
   }
 }
 
-export default Form
+export default Form;
