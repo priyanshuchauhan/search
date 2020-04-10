@@ -1,5 +1,6 @@
 {
-  "name": "search-ui",
+  "name": "search",
+  "homepage": "https://priyanshuchauhan.github.io/search/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +23,10 @@
     "build": "react-scripts build",
     "startAll": "concurrently --kill-others \"npm run server\" \"npm run frontend\"",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:fix": "npm run lint -- --fix",
+    "lint": "eslint src/**/*.js",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
