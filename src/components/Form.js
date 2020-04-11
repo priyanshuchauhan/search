@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Dropdown from "./Dropdown"
 
 class Form extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Form extends React.Component {
           required
         />
         <i className="fa fa-search" aria-hidden="true"></i>
-        Dropdown search by stack trace
+        <Dropdown/>
       </form>
     );
   }

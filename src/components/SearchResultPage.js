@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import { getShipmentReport } from "./utils/apiUtil";
 import { Title } from "./styles/AppStyles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
 
 import logo from "./logo.svg";
+import "./App.css";
 import Form from "./components/Form";
 import GitSearch from "./components/GitSearch";
 import QueryList from "./components/QueryList";
@@ -49,27 +48,19 @@ function App() {
           <div>your search page </div>
         </Route>
         <Route path="/">
-          <Box color="text.primary" clone 
-        style={{
-          backgroundImage: "url('img/daniel-olahh.jpg')"
-        }}>
-            <Container maxWidth="sm">
-              <div className="container">
-                <h1>Iluvatar Search</h1>
-                <Title>Programmer Search Engine vicicita !</Title>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://en.wikipedia.org/wiki/Special:Random"
-                >
-                  <i className="fa fa-random" aria-hidden="true"></i>
-                </a>
-                <Form onInput={addNewResult} />
-                <QueryList query={data} />
-                <GitSearch />
-              </div>
-            </Container>
-          </Box>
+          <div className="container">
+              <h1>Iluvatar Search</h1>
+              <Title>Programmer Search Engine vicicita !</Title>
+            <a
+              target="_blank" rel="noopener noreferrer"
+              href="https://en.wikipedia.org/wiki/Special:Random"
+            >
+              <i className="fa fa-random" aria-hidden="true"></i>
+            </a>
+            <Form onInput={addNewResult} />
+            <QueryList query={data} />
+            <GitSearch />
+          </div>
         </Route>
       </Switch>
     </Router>
