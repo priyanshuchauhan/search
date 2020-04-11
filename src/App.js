@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getShipmentReport } from "./utils/apiUtil";
-import { Title } from "./styles/AppStyles";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
-import logo from "./logo.svg";
+import bgimageSrc from "./img/antoine-barres.jpg";
+import Button from "@material-ui/core/Button";
+import Search from '@material-ui/icons/Search';
+
 import Form from "./components/Form";
 import GitSearch from "./components/GitSearch";
+import SOSearch from "./components/SOSearch";
 import QueryList from "./components/QueryList";
+import Drawer from "./common/Drawer";
+
+import SearchResult from "./containers/SearchResult";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -41,38 +47,49 @@ function App() {
     const searchResult = normalizeData(queryResult);
     setData(searchResult);
   };
+  const preventDefault = (event) => event.preventDefault();
 
   return (
-    <Router>
-      <Switch>
-        <Route path="/search-details/:id">
-          <div>your search page </div>
-        </Route>
-        <Route path="/">
-          <Box color="text.primary" clone 
-        style={{
-          backgroundImage: "url('img/daniel-olahh.jpg')"
-        }}>
-            <Container maxWidth="sm">
-              <div className="container">
-                <h1>Iluvatar Search</h1>
-                <Title>Programmer Search Engine vicicita !</Title>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://en.wikipedia.org/wiki/Special:Random"
-                >
-                  <i className="fa fa-random" aria-hidden="true"></i>
-                </a>
-                <Form onInput={addNewResult} />
-                <QueryList query={data} />
-                <GitSearch />
-              </div>
-            </Container>
-          </Box>
-        </Route>
-      </Switch>
-    </Router>
+    <div
+      style={{
+        backgroundImage: `url(${bgimageSrc})`,
+      }}
+    >
+      <Router>
+        <Switch>
+          <Route path="/search-details/:id">
+            <SearchResult />
+          </Route>
+          <Route path="/">
+            <Drawer />
+            <Box color="text.primary" clone>
+              <Container maxWidth="sm">
+                <div className="container">
+                  <h1>Iluvatar Search</h1>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://en.wikipedia.org/wiki/Special:Random"
+                  >
+                    <i className="fa fa-random" aria-hidden="true"></i>
+                  </a>
+                  <Form onInput={addNewResult} />
+                  <QueryList query={data} />
+                  <GitSearch />
+                  <SOSearch /> <br/>
+                  <Button href="/search-details/23" color="primary"
+                   variant="contained"
+                   startIcon={<Search />}
+                   >
+                    Search Result
+                  </Button > <br/><br/><br/> <br/><br/><br/>
+                </div>
+              </Container>
+            </Box>
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
