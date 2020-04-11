@@ -17,6 +17,11 @@ import Progress from "../common/Progress";
 import Dialog from "../common/Dialog";
 import Snackbar from "../common/Snackbar";
 import BackdropLoader from "../common/BackdropLoader";
+import Tabs from "../common/Tabs";
+import ShowTransistion from "../common/ShowTransistion"
+import Pagination from "../common/Pagination"
+import SpeedDial from "../common/SpeedDial"
+import TreeView from "../common/TreeView"
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,11 +39,11 @@ function App() {
       <AppBar />
       <Box color="text.primary" clone>
         <Container maxWidth="sm">
-          <br />
+          <Progress /> <br />
           <Breadcrumbs /> <br />
+          <Tabs/><br /><br />
           <Grid container spacing={2}>
             <Accordion /> <br />
-            <Progress /> <br />
             <Dialog /> <br />
             <Snackbar /> <br />
             <BackdropLoader /> <br />
@@ -46,6 +51,10 @@ function App() {
             <BottomNav /> <br />
             <ButtonGroup /> <br />
             <Stepper /> <br />
+            <Pagination/><br />
+            <SpeedDial/><br />
+            <TreeView/><br />
+            <ShowTransistion/>
             <Card />
           </Grid>
         </Container>
