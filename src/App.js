@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
-import bgimageSrc from "./img/antoine-barres.jpg";
+import coverSrc from "./img/code1.jpg";
+import coverVideo from "./img/code1.mp4";
+
 import Button from "@material-ui/core/Button";
 import Search from "@material-ui/icons/Search";
 
@@ -51,12 +53,19 @@ function App() {
   };
   const preventDefault = (event) => event.preventDefault();
 
+  setTimeout(() => {
+    var vid = document.getElementById("bgvid");
+    var pauseButton = document.querySelector("#polina button");
+
+    if (window.matchMedia("(prefers-reduced-motion)").matches) {
+      vid.removeAttribute("autoplay");
+      vid.pause();
+      pauseButton.innerHTML = "Paused";
+    }
+  }, 100);
+
   return (
-    <div
-      style={{
-        backgroundImage: `url(${bgimageSrc})`,
-      }}
-    >
+    <div>
       <Router>
         <Switch>
           <Route path={"/search-details/:id"}>
@@ -64,6 +73,20 @@ function App() {
           </Route>
           <Route path={"/"}>
             <Drawer>
+              {window.screen.availWidth > 700 && (
+                <video
+                  poster={coverSrc}
+                  id="bgvid"
+                  playsinline
+                  autoPlay
+                  muted
+                  loop
+                  style={{ zIndex: 0, margin: "165px 0 0 200px" }}
+                >
+                  <source src={coverVideo} type="video/mp4" />
+                </video>
+              )}
+
               <Box color="text.primary" clone>
                 <Container maxWidth="sm">
                   <h1>Iluvatar Search</h1>

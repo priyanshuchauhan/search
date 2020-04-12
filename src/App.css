@@ -1,15 +1,9 @@
 /******PAGE SETUP******/
 * {
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 0;
   padding: 0;
-}
-html, body {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, #0BDBF2, #fff36f);
-  background-attachment: fixed !important;
 }
 .container {
   display: inline-block;
@@ -26,7 +20,7 @@ h1 {
   font-size: 3.5em;
   width: 100%;
   color: rgba(55, 55, 55, 1);
-  font-family: 'Crushed', cursive;
+  font-family: "Crushed", cursive;
   letter-spacing: 2px;
 }
 #app > div > p {
@@ -75,7 +69,7 @@ i.fa-random {
 h2 {
   padding: 15px 0 0;
 }
-div.result{
+div.result {
   display: inline-block;
   width: 310px;
   vertical-align: middle;
@@ -89,21 +83,23 @@ div.result{
 .result:nth-child(odd) {
   background-color: rgba(254, 253, 193, 1);
   border-radius: 30px;
-  padding: 0 ;
+  padding: 0;
   color: rgba(65, 91, 101, 1);
 }
 div.bubble {
   border-radius: 30px;
   padding: 0 10px;
 }
-a, a:hover, a:visited {
+a,
+a:hover,
+a:visited {
   cursor: pointer;
-  color: rgba(71, 122, 128, 1) ;
+  color: rgba(71, 122, 128, 1);
   font-weight: 400;
   text-decoration: none;
 }
 @media (max-width: 468px) {
-  div.result{
+  div.result {
     display: inline-block;
     width: 92%;
     vertical-align: middle;
@@ -113,4 +109,22 @@ a, a:hover, a:visited {
     border-radius: 30px;
     padding: 0;
   }
+}
+
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url("./img/code1.jpg") no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+  opacity: 0.5;
 }

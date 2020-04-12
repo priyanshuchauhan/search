@@ -22,6 +22,7 @@ import ShowTransistion from "../common/ShowTransistion"
 import Pagination from "../common/Pagination"
 import SpeedDial from "../common/SpeedDial"
 import TreeView from "../common/TreeView"
+import bgSrc from "../img/bgblue.jfif";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -35,7 +36,9 @@ function App() {
   }, [currentPage]);
 
   return (
-    <div>
+    <div style={{
+      backgroundImage: `url(${bgSrc})`,
+    }}>
       <AppBar />
       <Box color="text.primary" clone>
         <Container maxWidth="sm">
