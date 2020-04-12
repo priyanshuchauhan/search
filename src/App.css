@@ -21,9 +21,9 @@ html, body {
 }
 /******TITLE******/
 h1 {
-  padding: 20px 0 0;
+  padding: 30px 0 0;
   display: inline-block;
-  font-size: 3em;
+  font-size: 3.5em;
   width: 100%;
   color: rgba(55, 55, 55, 1);
   font-family: 'Crushed', cursive;

@@ -170,6 +170,7 @@ export default function MiniDrawer({ children }) {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        {children}
       </main>
     </div>
   );

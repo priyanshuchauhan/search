@@ -22,7 +22,7 @@
     "styled-components": "^5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start set env PUBLIC_URL=/",
+    "start": "react-scripts start set env prod=false",
     "build": "react-scripts build",
     "startAll": "concurrently --kill-others \"npm run server\" \"npm run frontend\"",
     "test": "react-scripts test",

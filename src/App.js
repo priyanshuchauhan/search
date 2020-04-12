@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 
 import bgimageSrc from "./img/antoine-barres.jpg";
 import Button from "@material-ui/core/Button";
-import Search from '@material-ui/icons/Search';
+import Search from "@material-ui/icons/Search";
 
 import Form from "./components/Form";
 import GitSearch from "./components/GitSearch";
@@ -15,6 +15,8 @@ import QueryList from "./components/QueryList";
 import Drawer from "./common/Drawer";
 
 import SearchResult from "./containers/SearchResult";
+
+import { Link } from "react-router-dom";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -57,15 +59,15 @@ function App() {
     >
       <Router>
         <Switch>
-          <Route path={process.env.PUBLIC_URL + "/search-details/:id"}>
+          <Route path={"/search-details/:id"}>
             <SearchResult />
           </Route>
-          <Route path={process.env.PUBLIC_URL}>
-            <Drawer />
-            <Box color="text.primary" clone>
-              <Container maxWidth="sm">
-                <div className="container">
+          <Route path={"/"}>
+            <Drawer>
+              <Box color="text.primary" clone>
+                <Container maxWidth="sm">
                   <h1>Iluvatar Search</h1>
+                  <br />
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
@@ -76,16 +78,18 @@ function App() {
                   <Form onInput={addNewResult} />
                   <QueryList query={data} />
                   <GitSearch />
-                  <SOSearch /> <br/>
-                  <Button href="search-details/23" color="primary"
-                   variant="contained"
-                   startIcon={<Search />}
-                   >
-                    Search Result
-                  </Button > <br/><br/><br/> <br/><br/><br/>
-                </div>
-              </Container>
-            </Box>
+                  <SOSearch /> <br />
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    startIcon={<Search />}
+                  >
+                    <Link to={`/search-details/21`}> Search Result </Link>
+                  </Button>{" "}
+                  <br /> <br /> <br /> <br /> <br /> <br />
+                </Container>
+              </Box>
+            </Drawer>
           </Route>
         </Switch>
       </Router>
