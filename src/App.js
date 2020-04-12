@@ -57,10 +57,10 @@ function App() {
     >
       <Router>
         <Switch>
-          <Route path="/search-details/:id">
+          <Route path={process.env.PUBLIC_URL + "/search-details/:id"}>
             <SearchResult />
           </Route>
-          <Route path="/">
+          <Route path={process.env.PUBLIC_URL}>
             <Drawer />
             <Box color="text.primary" clone>
               <Container maxWidth="sm">
@@ -77,7 +77,7 @@ function App() {
                   <QueryList query={data} />
                   <GitSearch />
                   <SOSearch /> <br/>
-                  <Button href="/search-details/23" color="primary"
+                  <Button href="search-details/23" color="primary"
                    variant="contained"
                    startIcon={<Search />}
                    >
